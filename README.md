@@ -25,3 +25,4 @@ jobs:
       uses: actions/checkout@v2
 
 9. check github actions 
+10. checkout/v2 is deprecated so use v4 to get the warnings removed
