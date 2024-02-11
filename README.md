@@ -1,6 +1,6 @@
 # nodejs-hello-world
  
-1. Create an ec2 instance 
+1. Create an ec2 instance without giving any ssh key-pair
 2. ssh thorugh aws cloudshell
 3. generate pub-private ssh key in it
 4. add public key to ur github account
@@ -25,4 +25,4 @@ jobs:
       uses: actions/checkout@v2
 
 9. check github actions 
-10. checkout/v2 is deprecated so use v4 to get the warnings removed
+10. checkout/v2 is deprecated so use v4 instead to get the warnings removed
