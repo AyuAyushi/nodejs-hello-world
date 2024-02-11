@@ -1,3 +1,25 @@
 # nodejs-hello-world
  
-This is a simple hello world program in nodejs which is deployed to an ec2 instance using CI/CD
+1. Create an ec2 instance 
+2. ssh thorugh aws cloudshell
+3. generate pub-private ssh key in it
+4. add public key to ur github account
+6. install express using npm and create nodejs hello world app. create a repo in local.
+7. push the repo into github
+8. create a folder and a file inside it .github/workflows/cicd.yaml
+paste the following-----------------------------------------------------
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
