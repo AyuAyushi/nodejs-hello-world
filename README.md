@@ -26,3 +26,4 @@ jobs:
 
 9. check github actions 
 10. checkout/v2 is deprecated so use v4 instead to get the warnings removed
+11. In github navigate to the main page of the repository. >  click  Settings >  select  Secrets and variables, then click Actions. > Click the Secrets tab. > Click New repository secret.
