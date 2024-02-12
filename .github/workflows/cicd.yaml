@@ -12,3 +12,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+    
+    - name: Deploying to EC2
+      run: ssh -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} ${{secrets.EC2_USER}}@${{ secrets.EC2_HOST }} 'mkdir -p ~/learningDeployment'
