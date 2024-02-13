@@ -1,6 +1,6 @@
 # nodejs-hello-world
  
-1. Create an ec2 instance without giving any ssh key-pair
+1. Create an ec2 instance  using ubuntu with a key-pair
 2. ssh thorugh aws cloudshell
 3. generate pub-private ssh key in it
 4. add public key to ur github account (/home/ec2-user/.ssh)
@@ -32,4 +32,38 @@ Add the following secrets:
 EC2_HOST -> public ipv4 address
 EC2_USERNAME -> ec2-user
 EC2_SSH_KEY -> check /home/ec2-user/.ssh
+
+
+
+sudo su - 
+
+1. ssh into ec2 instance thorught local 
+ssh -i privatekeyfile.pem user@ipaddress
+2.
+
+ssh-keygen 
+
+copy the private key and enter in github secrets
+
+-------------------------------------------------------------------------------------------------------------------------------------------Final-----------
+
+
+
+1. create ec2 instance with key pair (private) --- ubuntu
+ssh from local to ec2
+2.chmod 400 DemoDeployment
+
+3. ssh -i DemoDeployment.pem ubuntu@ip
+just do ls and check now
+
+4. ssh-keygen -t rsa -b 4096 -C "your_email@example.com" (generate key in ec2)
+5. cd /home/ubuntu/.ssh
+6. check for all the 3 files - id_rsa id_rsa.pub authroized_keys
+7. authorized key contains DemoDeployment and github email 
+i.e. local  machine can communicate to ec2 using the private key (DemoDeployment) and also github can communicate to ec2 (using private key we gave to github secrets)
+8. cat id_rsa.pub >> authorized_keys
+i.e. append the puiblic key to it
+9. copy private key (id_rsa) and make 3 secrets git secret- EC2_PRIVATE_KEY, EC2_HOST, EC2_USER
+(while copying the private key include everything including begin and end lines)
+(for host, copy the public ipv4 address)
 
