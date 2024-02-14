@@ -22,9 +22,9 @@ jobs:
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash. ~/.nvm/nvm.sh
           . ~/.nvm/nvm.sh
           nvm install --lts
-          mkdir -p /tmp/demoDeployment
-          cd /tmp/demoDeployment
+          rm -rf tmp/
           git clone https://github.com/AyuAyushi/nodejs-hello-world.git
           cd nodejs-hello-world
           git pull origin main
+
         '
