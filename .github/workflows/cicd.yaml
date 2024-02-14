@@ -26,5 +26,6 @@ jobs:
           git clone https://github.com/AyuAyushi/nodejs-hello-world.git
           cd nodejs-hello-world
           git pull origin main
-
+          npm install
+          node index.js
         '
