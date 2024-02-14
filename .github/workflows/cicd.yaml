@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-    
     - name: Deploying to EC2 instance
       env:
           PRIVATE_KEY: ${{ secrets.EC2_PRIVATE_KEY }}
@@ -22,5 +19,12 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-          mkdir -p /tmp/test1
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash. ~/.nvm/nvm.sh
+          . ~/.nvm/nvm.sh
+          nvm install --lts
+          mkdir -p /tmp/demoDeployment
+          cd /tmp/demoDeployment
+          git clone https://github.com/AyuAyushi/nodejs-hello-world.git
+          cd nodejs-hello-world
+          git pull origin main
         '
