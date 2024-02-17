@@ -56,7 +56,7 @@ ssh from local to ec2
 3. ssh -i DemoDeployment.pem ubuntu@<publicIP>
 just do ls and check now
 
-4. ssh-keygen -t rsa -b 4096 -C "your_email@example.com" (generate key in ec2)
+4. ssh-keygen -t rsa -b 4096 -C "your_email@example.com" (generate key in ec2) --mailid has to be associated with github account
 5. cd /home/ubuntu/.ssh
 6. check for all the 3 files - id_rsa id_rsa.pub authroized_keys
 7. authorized key contains DemoDeployment and github email 
@@ -80,6 +80,8 @@ Sets up the workspace so that subsequent steps in your workflow can access the c
 -> . ~/.nvm/nvm.sh (activating nvm)
 -> nvm install --lts
 
+12. Enabled All traffic in ec2 instance security group, and push the yaml
+13. Access the <public_ip>:3000 to see the response
 
 
 
