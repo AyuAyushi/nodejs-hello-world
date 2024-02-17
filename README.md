@@ -84,4 +84,5 @@ Sets up the workspace so that subsequent steps in your workflow can access the c
 13. Access the <public_ip>:3000 to see the response
 
 
-
+using pm2 so that connection doesn't time out when server is idle (node index.js keeps the process idle and doesn't exit the workflow running)
+pm2 keeps the process running and stopping it before so that if it is running already it stops and pm2 is globalli installed and not as a project dependency
