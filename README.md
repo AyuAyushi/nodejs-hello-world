@@ -53,7 +53,7 @@ copy the private key and enter in github secrets
 ssh from local to ec2
 2.chmod 400 DemoDeployment
 
-3. ssh -i DemoDeployment.pem ubuntu@ip
+3. ssh -i DemoDeployment.pem ubuntu@<publicIP>
 just do ls and check now
 
 4. ssh-keygen -t rsa -b 4096 -C "your_email@example.com" (generate key in ec2)
@@ -66,4 +66,20 @@ i.e. append the puiblic key to it
 9. copy private key (id_rsa) and make 3 secrets git secret- EC2_PRIVATE_KEY, EC2_HOST, EC2_USER
 (while copying the private key include everything including begin and end lines)
 (for host, copy the public ipv4 address)
+
+The checkout action does the following:
+
+Clones your repository into the runner environment. (i.e. in github workflow remote machine where these steps are running)
+Checks out the commit or branch specified in the trigger event. In this case, it's the default branch (main).
+Sets up the workspace so that subsequent steps in your workflow can access the checked-out code.
+
+10. run the yaml and check that ssh is happening from github to ec2 (just the ssh command part of deploying to ec2 instance run)
+11. Check if git is present else install
+12. install nodejs in ec2 instance (using script):
+-> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash. ~/.nvm/nvm.sh (install nvm)
+-> . ~/.nvm/nvm.sh (activating nvm)
+-> nvm install --lts
+
+
+
 
