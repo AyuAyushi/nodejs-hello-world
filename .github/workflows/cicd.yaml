@@ -27,6 +27,7 @@ jobs:
           cd nodejs-hello-world
           git pull origin main
           npm install
+          pkill -f node
           nohup node index.js
         '
     - name: Notify deployment success
