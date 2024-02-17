@@ -23,6 +23,7 @@ jobs:
           . ~/.nvm/nvm.sh
           nvm install --lts
           rm -rf tmp/
+          cd tmp
           git clone https://github.com/AyuAyushi/nodejs-hello-world.git
           cd nodejs-hello-world
           git pull origin main
