@@ -27,5 +27,7 @@ jobs:
           cd nodejs-hello-world
           git pull origin main
           npm install
-          node index.js
+          nohup node index.js
         '
+    - name: Notify deployment success
+      run: echo "Deployment successful"
